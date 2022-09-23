@@ -27,64 +27,64 @@ const inscriptionKodemiaHector = {
 
 function interviewed(callback, object) {
   setTimeout(() => {
-    callback(null, object);
+    object.isInterviewed = true;
+    callback(null, "YA SE ENTREVISTÓ!");
+    console.log(object);
   }, 2000);
 }
 
 function offered(callback, object) {
   setTimeout(() => {
-    callback(null, object);
+    object.hasOffer = true;
+    callback(null, "YA SE LE HIZO UNA OFERTA!");
+    console.log(object);
   }, 3000);
 }
 
 function inscription(callback, object) {
   setTimeout(() => {
-    callback(null, object);
+    object.isInscript = true;
+    callback(null, "YA SE INSCRIBIÓ!");
+    console.log(object);
   }, 3000);
 }
 
 function classTaken(callback, object) {
   setTimeout(() => {
-    callback(null, object);
+    object.canTakeClass = true;
+    callback(null, "YA ESTÁ TOMANDO CLASES!");
+    console.log(object);
   }, 3000);
 }
 
-interviewed((error, object) => {
+interviewed((error, message) => {
   if (error) {
     console.log("hay un error: ", error);
     return;
   }
-  object.isInterviewed = true;
-  console.log("YA SE ENTREVISTÓ!");
-  console.log(object);
+  console.log(message);
 
-  offered((error, object) => {
+  offered((error, message) => {
     if (error) {
       console.log("hay un error: ", error);
       return;
     }
-    object.hasOffer = true;
-    console.log("YA SE LE HIZO UNA OFERTA!");
-    console.log(object);
+    console.log(message);
 
-    inscription((error, object) => {
+    inscription((error, message) => {
       if (error) {
         console.log("hay un error: ", error);
         return;
       }
-      object.isInscript = true;
-      console.log("YA SE INSCRIBIÓ!");
-      console.log(object);
+      console.log(message);
 
-      classTaken((error, object) => {
+      classTaken((error, message) => {
         if (error) {
           console.log("hay un error: ", error);
           return;
         }
-        object.canTakeClass = true;
-        console.log("YA ESTÁ TOMANDO CLASES!");
-        console.log(object);
-      }, object);
-    }, object);
-  }, object);
+        console.log(message);
+      }, inscriptionKodemiaHector);
+    }, inscriptionKodemiaHector);
+  }, inscriptionKodemiaHector);
 }, inscriptionKodemiaHector);
