@@ -25,7 +25,7 @@ const inscriptionKodemiaHector = {
   canTakeClass: false,
 };
 
-function interviewed(callback, object) {
+function interviewed(object, callback) {
   setTimeout(() => {
     object.isInterviewed = true;
     callback(null, "YA SE ENTREVISTÓ!");
@@ -33,7 +33,7 @@ function interviewed(callback, object) {
   }, 2000);
 }
 
-function offered(callback, object) {
+function offered(object, callback) {
   setTimeout(() => {
     object.hasOffer = true;
     callback(null, "YA SE LE HIZO UNA OFERTA!");
@@ -41,7 +41,7 @@ function offered(callback, object) {
   }, 3000);
 }
 
-function inscription(callback, object) {
+function inscription(object, callback) {
   setTimeout(() => {
     object.isInscript = true;
     callback(null, "YA SE INSCRIBIÓ!");
@@ -49,42 +49,42 @@ function inscription(callback, object) {
   }, 3000);
 }
 
-function classTaken(callback, object) {
+function classTaken(object, callback) {
   setTimeout(() => {
     object.canTakeClass = true;
-    callback(null, "YA ESTÁ TOMANDO CLASES!");
+    callback(1, "YA ESTÁ TOMANDO CLASES!");
     console.log(object);
   }, 3000);
 }
 
-interviewed((error, message) => {
+interviewed(inscriptionKodemiaHector, (error, message) => {
   if (error) {
-    console.log("hay un error: ", error);
+    console.log("No se inscribió :( mira: ", error);
     return;
   }
   console.log(message);
 
-  offered((error, message) => {
+  offered(inscriptionKodemiaHector, (error, message) => {
     if (error) {
-      console.log("hay un error: ", error);
+      console.log("No se le hizo una oferta :( debido a:  ", error);
       return;
     }
     console.log(message);
 
-    inscription((error, message) => {
+    inscription(inscriptionKodemiaHector, (error, message) => {
       if (error) {
-        console.log("hay un error: ", error);
+        console.log("No se pudo inscribir D: checa porqué: ", error);
         return;
       }
       console.log(message);
 
-      classTaken((error, message) => {
+      classTaken(inscriptionKodemiaHector, (error, message) => {
         if (error) {
-          console.log("hay un error: ", error);
+          console.log("No tomó clases D': lo que pasó es que: ", error);
           return;
         }
         console.log(message);
-      }, inscriptionKodemiaHector);
-    }, inscriptionKodemiaHector);
-  }, inscriptionKodemiaHector);
-}, inscriptionKodemiaHector);
+      });
+    });
+  });
+});
