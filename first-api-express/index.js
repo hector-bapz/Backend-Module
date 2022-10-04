@@ -6,6 +6,8 @@
 
 import express from 'express'
 import kodersRouter from './routers/koders.router.js'
+import mentoresRouter from './routers/mentores.router.js'
+
 
 //express es un framework (conjunto de componentes que ya nos brinda muchas cosas) que se utiliza para generar apis de forma rapida
 // nos permite crear aplicaciones de servidor (server side app) 
@@ -18,7 +20,7 @@ server.use(express.json())
 
 //routers
 server.use('/koders', kodersRouter)
-
+server.use('/mentores', mentoresRouter)
 
 //poner a escuchar nuestro server
 
