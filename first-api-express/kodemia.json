@@ -1,0 +1,99 @@
+{
+  "koders": [
+    {
+      "id": 2,
+      "name": "Jonatan Arevalo",
+      "gender": "m",
+      "generation": 4
+    },
+    {
+      "id": 3,
+      "name": "Annie León",
+      "gender": "f",
+      "generation": 21
+    },
+    {
+      "id": 4,
+      "name": "Héctor",
+      "gender": "m",
+      "generation": 21
+    },
+    {
+      "id": 5,
+      "name": "Cin Ruiz",
+      "gender": "f",
+      "generation": 21
+    },
+    {
+      "id": 6,
+      "name": "Jhonathan Arevalo",
+      "gender": "m",
+      "generation": 21
+    },
+    {
+      "id": 7,
+      "name": "Rafa",
+      "gender": "m",
+      "generation": 21
+    },
+    {
+      "id": 8,
+      "name": "Gonzalo Ramirez",
+      "gender": "m",
+      "generation": 21
+    },
+    {
+      "id": 9,
+      "name": "Luis",
+      "gender": "m",
+      "generation": 19
+    },
+    {
+      "id": 10,
+      "name": "Maria José",
+      "gender": "m",
+      "generation": 19
+    },
+    {
+      "id": 11,
+      "name": "Luis",
+      "gender": "m",
+      "generation": 17
+    },
+    {
+      "id": 12,
+      "name": "Anna Patricia",
+      "gender": "m",
+      "generation": 17
+    }
+  ],
+  "mentores": [
+    {
+      "id": 1,
+      "name": "Fernanda Palacios",
+      "module": [
+        "maquetado",
+        "backend"
+      ],
+      "gender": "f"
+    },
+    {
+      "id": 2,
+      "name": "Odon",
+      "module": "Introducción a la programación",
+      "gender": "h"
+    },
+    {
+      "id": 3,
+      "name": "Auro",
+      "module": "Introducción a la programación",
+      "gender": "m"
+    },
+    {
+      "id": 4,
+      "name": "Aldo Aldaco",
+      "module": "Introducción a javascript",
+      "gender": "f"
+    }
+  ]
+}
