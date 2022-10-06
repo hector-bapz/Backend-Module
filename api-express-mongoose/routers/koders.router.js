@@ -51,15 +51,13 @@ router.get('/:idKoders', async (request, response) =>{
 })
 
 //PATCH /koders/:id
-router.patch('/:idKoder/:name',async (request, response)=>{
+router.patch('/:idKoder',async (request, response)=>{
     const idKoder = request.params.idKoder
-    const name = request.params.name
+    const koderUpdates = request.body
     let updatedKoder, success, status
-    const newData = {
-        name: name
-    }   
+
     try{
-        updatedKoder = await Koder.findByIdAndUpdate(idKoder,newData, {new: true})
+        updatedKoder = await Koder.findByIdAndUpdate(idKoder,koderUpdates, {new: true})
     } catch {
         success = false
     }
