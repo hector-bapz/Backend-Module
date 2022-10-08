@@ -3,6 +3,7 @@ import express from 'express'
 import * as dotenv from 'dotenv'
 import kodersRouter from './routers/koders.router.js'
 
+
 dotenv.config() //cargar todas las variables de entorno
 
 const{DB_USER, DB_PASSWORD, DB_NAME, DB_HOST} = process.env

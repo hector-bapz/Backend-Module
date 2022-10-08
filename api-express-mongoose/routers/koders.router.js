@@ -1,5 +1,6 @@
 import {Koder} from '../models/koders.models.js'
 import express from 'express'
+import {StatusHttp} from '../errorCustom.js'
 
 const router = express.Router()
 
@@ -27,27 +28,24 @@ Endpoints:
 
 // GET /koders/:id
 router.get('/:idKoders', async (request, response) =>{
-    const idKoders = request.params.idKoders
-    let koderFound, success, status
     try{
-        koderFound = await Koder.findById(idKoders) 
-    } catch{ 
-        success = false
+        const idKoders = request.params.idKoders
+        const koderFound = await Koder.findById(idKoders) 
+        if(!koderFound) throw new StatusHttp('Koder Not Found!', 404)
+        response.json({
+            success: true,
+            data : {koder:koderFound}
+        })
+    } catch(error){ 
+        console.log(error.status)
+        response.status(error.status||400).json({
+            success: false,
+            koder : error.message
+        })
     }
 
-    if(!koderFound){
-        status = 404
-        koderFound = 'Koder Not Found'
-    } else{
-        status = 200
-        success = true
-    }
 
-    response.status(status)
-    response.json({
-        success: success,
-        koder : koderFound
-    })
+
 })
 
 //PATCH /koders/:id
